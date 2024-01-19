@@ -2,6 +2,7 @@ package com.example.testingjetpack.screens
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,6 +18,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.testingjetpack.R
+import com.example.testingjetpack.navigation.AppScreens
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -39,7 +41,7 @@ fun BodyContent(navController: NavController){
         Row {
             Image(
                 painter= painterResource(R.drawable.ic_report),
-                contentDescription ="Alert",
+                contentDescription ="Report",
                 alignment = Alignment.Center,
                 //El modifier es la clave en los composables,
                 //permite ajustar las propiedades de los componentes
@@ -61,17 +63,20 @@ fun BodyContent(navController: NavController){
         Row {
             Image(
                 painter= painterResource(R.drawable.ic_people),
-                contentDescription ="Alert",
+                contentDescription ="People",
                 alignment = Alignment.Center,
                 //El modifier es la clave en los composables,
                 //permite ajustar las propiedades de los componentes
                 modifier = Modifier
                     .size(110.dp,68.dp)
                     .padding(top = 20.dp, bottom = 10.dp)
+                    .clickable {
+                        navController.navigate(route = AppScreens.ListaClientesScreen.route)
+                    }
             )
             Image(
                 painter= painterResource(R.drawable.ic_sync),
-                contentDescription ="Alert",
+                contentDescription ="Sync",
                 alignment = Alignment.Center,
                 //El modifier es la clave en los composables,
                 //permite ajustar las propiedades de los componentes

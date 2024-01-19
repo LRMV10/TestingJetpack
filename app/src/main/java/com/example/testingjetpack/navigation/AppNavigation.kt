@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.testingjetpack.screens.ClienteInfo
+import com.example.testingjetpack.screens.ListadoClientes
 import com.example.testingjetpack.screens.LoginScreen
 import com.example.testingjetpack.screens.Menu
 
@@ -17,6 +19,12 @@ fun AppNavigation() {
         }
         composable(route=AppScreens.MenuScreen.route){
             Menu(navController)
+        }
+        composable(route=AppScreens.ListaClientesScreen.route){
+            ListadoClientes(navController)
+        }
+        composable(route=AppScreens.ClienteInfoScreen.route){
+            ClienteInfo(navController)
         }
     }
 }

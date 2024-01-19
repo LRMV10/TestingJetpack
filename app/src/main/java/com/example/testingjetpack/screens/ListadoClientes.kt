@@ -35,12 +35,12 @@ import com.example.testingjetpack.dataModels.Cliente
 fun ListadoClientes(navController: NavController){
     //La función principal que dibuja el resto, el scaffold ayuda a acomodar el contenido
     Scaffold {
-        ListContent()
+        ListContent(navController)
     }
 }
 
 @Composable
-fun ListContent(){
+fun ListContent(navController: NavController){
 
 //    var personList = listOf(
 //        "Jorge Negrete",
@@ -91,6 +91,7 @@ fun ListContent(){
                         Toast
                             .makeText(context, person.nombreCliente, Toast.LENGTH_SHORT)
                             .show()
+                        //navController.navigate(route = )
                     }) {
                         Text(text = person.nombreNegocio,
                             style = TextStyle(
@@ -114,10 +115,10 @@ fun ListContent(){
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun preview()
-{
-    ListContent()
-}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun preview()
+//{
+//    ListContent()
+//}
