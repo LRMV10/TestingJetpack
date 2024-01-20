@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.testingjetpack.R
 import com.example.testingjetpack.dataModels.Cliente
+import com.example.testingjetpack.navigation.AppScreens
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -49,9 +50,9 @@ fun ListContent(navController: NavController){
 //    )
 
     val personList = listOf(
-        Cliente("El Charro","JorgeNegrete"),
-        Cliente("El Charro","JorgeNegrete"),
-        Cliente("El Charro","JorgeNegrete")
+        Cliente(1,"El Charro","Jorge Negrete"),
+        Cliente(2,"El Charro","Jorge Negrete"),
+        Cliente(3,"El Charro","Jorge Negrete")
     )
 
     Column(
@@ -91,7 +92,7 @@ fun ListContent(navController: NavController){
                         Toast
                             .makeText(context, person.nombreCliente, Toast.LENGTH_SHORT)
                             .show()
-                        //navController.navigate(route = )
+                        navController.navigate(route = "cliente_info_screen/${person.nombreCliente}/${person.idCliente}")
                     }) {
                         Text(text = person.nombreNegocio,
                             style = TextStyle(

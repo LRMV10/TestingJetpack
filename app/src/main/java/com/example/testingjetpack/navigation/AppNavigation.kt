@@ -24,7 +24,10 @@ fun AppNavigation() {
             ListadoClientes(navController)
         }
         composable(route=AppScreens.ClienteInfoScreen.route){
-            ClienteInfo(navController)
+            //Así se pasan los argumentos entre Screens
+            val item = it.arguments?.getString("item")
+            val item1 = it.arguments?.getLong("item1")
+            ClienteInfo(navController,item = item,item1 = item1)
         }
     }
 }

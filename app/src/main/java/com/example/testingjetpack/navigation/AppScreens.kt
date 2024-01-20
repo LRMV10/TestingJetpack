@@ -5,5 +5,5 @@ sealed class AppScreens(val route: String){
     object MainScreen: AppScreens("main_screen")
     object MenuScreen: AppScreens("menu_screen")
     object ListaClientesScreen: AppScreens("lista_clientes_screen")
-    object ClienteInfoScreen: AppScreens("cliente_info_screen")
+    object ClienteInfoScreen: AppScreens("cliente_info_screen/{item}/{item1}")
 }
