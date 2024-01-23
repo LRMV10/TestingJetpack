@@ -1,6 +1,7 @@
 package com.example.testingjetpack.screens
 
 import android.annotation.SuppressLint
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -25,12 +26,12 @@ import androidx.navigation.NavController
 fun ClienteInfo(navController: NavController,item:String?=null,item1:Long?=null){
     //La función principal que dibuja el resto, el scaffold ayuda a acomodar el contenido
     Scaffold {
-        ListContentCliente(item,item1)
+        ListContentCliente(item,item1,navController)
     }
 }
 
 @Composable
-fun ListContentCliente(persona:String?,idPersona:Long?){
+fun ListContentCliente(persona:String?,idPersona:Long?,navController: NavController){
     Column(modifier = Modifier
         .fillMaxSize()
         .padding(top = 20.dp),
@@ -61,7 +62,13 @@ fun ListContentCliente(persona:String?,idPersona:Long?){
                 style = TextStyle(
                     fontSize = 16.sp
                 ),
-                modifier = Modifier.padding(top=40.dp))
+                modifier = Modifier
+                    .padding(top=40.dp)
+                    .clickable {
+                        val titulo="Ventas del mes anterior"
+                        val tipo="1"
+                        navController.navigate(route = "resumen_ventas_screen/${titulo}/${tipo}")
+                    })
             Text(text = "Ventas mes actual",
                 style = TextStyle(
                     fontSize = 16.sp
@@ -101,7 +108,7 @@ fun ListContentCliente(persona:String?,idPersona:Long?){
     }
 }
 
-@Preview(showBackground = true)
+/*@Preview(showBackground = true)
 @Composable
 fun ClienteinfoPreview(){
     val name="Juan"
@@ -109,4 +116,4 @@ fun ClienteinfoPreview(){
     Column(modifier = Modifier.fillMaxSize()) {
         ListContentCliente(name,id)
     }
-}
+}*/

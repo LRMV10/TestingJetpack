@@ -8,6 +8,7 @@ import com.example.testingjetpack.screens.ClienteInfo
 import com.example.testingjetpack.screens.ListadoClientes
 import com.example.testingjetpack.screens.LoginScreen
 import com.example.testingjetpack.screens.Menu
+import com.example.testingjetpack.screens.ResumenVentas
 
 @Composable
 fun AppNavigation() {
@@ -28,6 +29,12 @@ fun AppNavigation() {
             val item = it.arguments?.getString("item")
             val item1 = it.arguments?.getLong("item1")
             ClienteInfo(navController,item = item,item1 = item1)
+        }
+        composable(route=AppScreens.ResumenVentasScreen.route){
+            //Así se pasan los argumentos entre Screens
+            val titulo = it.arguments?.getString("titulo")
+            val tipo = it.arguments?.getString("tipo")
+            ResumenVentas(titulo = titulo,tipo = tipo)
         }
     }
 }
